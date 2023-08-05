@@ -34,7 +34,7 @@ mapy = ((mapy + 1) * Frame_Size - 1) / 2
 def movement():
     global FOV, theta, phi, Thread
     while Thread:
-        ip = input().split(" ")
+        ip = input("[FOV theta phi]").split(" ")
         if(ip[0] == "stop" or ip[0] == "q"):
             Thread = False
         else:
