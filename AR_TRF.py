@@ -6,7 +6,7 @@ import numpy as np
 
 Thread = True
 
-WINDOW_NAME = "360 Viewer"
+WINDOW_NAME = "AR Viewer"
 Frame_Size = 400
 
 mapper = fisheyeImgConv()
@@ -35,7 +35,7 @@ def movement():
     global FOV, theta, phi, Thread
     while Thread:
         ip = input("[FOV theta phi]").split(" ")
-        if(ip[0] == "stop" or ip[0] == "q"):
+        if ip[0] == "stop" or ip[0] == "q":
             Thread = False
         else:
             FOV = int(ip[0])
