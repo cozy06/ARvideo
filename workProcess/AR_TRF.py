@@ -6,14 +6,14 @@ import numpy as np
 
 Thread = True
 
+videoSource = "/Users/cozy06/Desktop/cozy06-Dev/python/ARvideo/data/testVideo.mp4"  # 실시간은 0, 웹캠 사용시 1
+
 WINDOW_NAME = "AR Viewer"
 Frame_Size = 400
 
 mapper = fisheyeImgConv()
 
-cv2.namedWindow(WINDOW_NAME)
-
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(videoSource)
 
 exp = 1.5  # 볼록, 오목 지수 (오목 : 0.1 ~ 1, 볼록 : 1.1~)
 
@@ -34,7 +34,7 @@ mapy = ((mapy + 1) * Frame_Size - 1) / 2
 def movement():
     global FOV, theta, phi, Thread
     while Thread:
-        ip = input("[FOV theta phi]").split(" ")
+        ip = input("[FOV theta phi]: ").split(" ")
         if ip[0] == "stop" or ip[0] == "q":
             Thread = False
         else:
@@ -53,9 +53,11 @@ phi = 0
 while Thread:
     _, img = cap.read()
 
+    cv2.imshow("input image", img)
+
     outputFlat = mapper.eqruirect2persp(img, FOV, theta, phi, Frame_Size, Frame_Size)
     outputCurve = cv2.remap(outputFlat, mapx, mapy, cv2.INTER_LINEAR)
 
-    # cv2.imshow(WINDOW_NAME + " Flatten", outputFlat)
+    cv2.imshow(WINDOW_NAME + " Flatten", outputFlat)
     cv2.imshow(WINDOW_NAME + " Curved", outputCurve)
     cv2.waitKey(1)
