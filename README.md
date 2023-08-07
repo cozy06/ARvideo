@@ -7,6 +7,9 @@
 
 SQUARE video -> VR video
 
+### 위치
+workProcess 안의 AR_TRF.py 실행
+
 ---
 ## input
 FOV, theta, phi를 차례대로 입력
