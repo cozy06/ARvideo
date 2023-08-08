@@ -8,7 +8,7 @@
 SQUARE video -> AR video
 
 ### 위치
-workProcess 안의 AR_TRF.py 실행
+workProcess 폴더 안의 AR_TRF.py 실행
 
 ---
 ## input
