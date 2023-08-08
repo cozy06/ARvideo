@@ -17,7 +17,7 @@ FOV, theta, phi를 차례대로 입력
 q, stop를 입력시 코드 정지
 
 ---
-## People
+## Author
 ### Contributors
 
 - cozy06
