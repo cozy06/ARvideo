@@ -21,3 +21,4 @@ q, stop를 입력시 코드 정지
 ### Contributors
 
 - cozy06
+- ptrismyname
