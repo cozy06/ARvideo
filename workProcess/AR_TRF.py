@@ -15,19 +15,19 @@ FOV = 90
 theta = 0
 phi = 0
 
-def mapping(exp, Frame_size):
-    mapy, mapx = np.indices((Frame_Size, Frame_Size), dtype=np.float32)
+def mapping(exp, Frame):
+    mapy, mapx = np.indices((Frame, Frame), dtype=np.float32)
 
-    mapx = 2 * mapx / (Frame_Size - 1) - 1
-    mapy = 2 * mapy / (Frame_Size - 1) - 1
+    mapx = 2 * mapx / (Frame - 1) - 1
+    mapy = 2 * mapy / (Frame - 1) - 1
 
     r, theta = cv2.cartToPolar(mapx, mapy)
     r = r ** exp
 
     mapx, mapy = cv2.polarToCart(r, theta)
 
-    mapx = ((mapx + 1) * Frame_Size - 1) / 2
-    mapy = ((mapy + 1) * Frame_Size - 1) / 2
+    mapx = ((mapx + 1) * Frame - 1) / 2
+    mapy = ((mapy + 1) * Frame - 1) / 2
 
     return mapx, mapy
 
